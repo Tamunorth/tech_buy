@@ -39,6 +39,12 @@ dependencies:
   flutter_bloc: ^8.1.1
   page_transition: ^2.0.9
   flutter_screenutil: ^5.5.4
+  get_it: ^7.2.0
+  dio: ^4.0.6
+  another_flushbar: ^1.12.29
+  logger: ^1.1.0
+  path_provider: ^2.0.11
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:

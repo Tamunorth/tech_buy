@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:tech_buy/features/auth/screens/auth_screen.dart';
+import 'package:tech_buy/features/home/screens/home_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -9,6 +10,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const AuthScreen(),
+      );
+    case HomeScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const HomeScreen(),
       );
     default:
       return MaterialPageRoute(
@@ -49,7 +55,7 @@ class Routers {
     Navigator.of(context, rootNavigator: rootNavigator).pop();
   }
 
-  static void popUntilBase(BuildContext context, {bool rootNavigator = false}) {
+  static void removeUntil(BuildContext context, {bool rootNavigator = false}) {
     {
       Navigator.of(context).popUntil((route) => route.isFirst);
     }

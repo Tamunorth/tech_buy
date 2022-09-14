@@ -18,12 +18,12 @@ class _CustomTextButtonState extends State<CustomTextButton> {
     return AnimatedContainer(
       duration: Duration(milliseconds: 200),
       child: ElevatedButton(
-        onPressed: widget.onTap,
+        onPressed: widget.isLoading ? null : widget.onTap,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.0),
+            borderRadius: BorderRadius.circular(10.0),
           ),
-          minimumSize: Size(double.infinity, 55),
+          minimumSize: Size(double.infinity, 50),
         ),
         child: widget.isLoading
             ? SizedBox(
