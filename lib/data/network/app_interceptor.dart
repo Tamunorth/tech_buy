@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:tech_buy/common/network/session_manager.dart';
+import 'package:tech_buy/data/network/session_manager.dart';
 
 /// [Interceptor] extension for setting token header
 /// and other required properties for all requests
@@ -14,7 +14,7 @@ class AppInterceptor extends Interceptor {
       RequestOptions options, RequestInterceptorHandler handler) async {
     if (authToken.isNotEmpty) {
       options.headers.addAll({
-        "Authorization": "Bearer " + SessionManager.instance.authToken,
+        "Authorization": SessionManager.instance.authToken,
       });
     }
     return super.onRequest(options, handler);

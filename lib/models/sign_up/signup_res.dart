@@ -1,5 +1,5 @@
 /// success : true
-/// data : {"name":"Tams e","email":"Tams3@email.com","password":"$2a$08$65TUhjIz/BkYI3uR.2rTjeCGyW8EQYokJnmaji/z3q1FXAgXyMN9m","address":"","_id":"63219a86bb5445c99d6188bb","__v":0}
+/// data : {"name":"Tams e","email":"Tams14=0@email.com","password":"$2a$08$w4FBriNoEb8aXSJJdpnnFuSCImTdDUSWnErv7sv3QL9kqQFNgenN6","address":"","type":"user","_id":"63243715c3c2bae43ab8501e","__v":0}
 /// message : "User successfully created"
 
 class SignUpRes {
@@ -47,10 +47,11 @@ class SignUpRes {
 }
 
 /// name : "Tams e"
-/// email : "Tams3@email.com"
-/// password : "$2a$08$65TUhjIz/BkYI3uR.2rTjeCGyW8EQYokJnmaji/z3q1FXAgXyMN9m"
+/// email : "Tams14=0@email.com"
+/// password : "$2a$08$w4FBriNoEb8aXSJJdpnnFuSCImTdDUSWnErv7sv3QL9kqQFNgenN6"
 /// address : ""
-/// _id : "63219a86bb5445c99d6188bb"
+/// type : "user"
+/// _id : "63243715c3c2bae43ab8501e"
 /// __v : 0
 
 class Data {
@@ -59,6 +60,7 @@ class Data {
     String? email,
     String? password,
     String? address,
+    String? type,
     String? id,
     num? v,
   }) {
@@ -66,6 +68,7 @@ class Data {
     _email = email;
     _password = password;
     _address = address;
+    _type = type;
     _id = id;
     _v = v;
   }
@@ -75,6 +78,7 @@ class Data {
     _email = json['email'];
     _password = json['password'];
     _address = json['address'];
+    _type = json['type'];
     _id = json['_id'];
     _v = json['__v'];
   }
@@ -82,6 +86,7 @@ class Data {
   String? _email;
   String? _password;
   String? _address;
+  String? _type;
   String? _id;
   num? _v;
   Data copyWith({
@@ -89,6 +94,7 @@ class Data {
     String? email,
     String? password,
     String? address,
+    String? type,
     String? id,
     num? v,
   }) =>
@@ -97,6 +103,7 @@ class Data {
         email: email ?? _email,
         password: password ?? _password,
         address: address ?? _address,
+        type: type ?? _type,
         id: id ?? _id,
         v: v ?? _v,
       );
@@ -104,6 +111,7 @@ class Data {
   String? get email => _email;
   String? get password => _password;
   String? get address => _address;
+  String? get type => _type;
   String? get id => _id;
   num? get v => _v;
 
@@ -113,6 +121,7 @@ class Data {
     map['email'] = _email;
     map['password'] = _password;
     map['address'] = _address;
+    map['type'] = _type;
     map['_id'] = _id;
     map['__v'] = _v;
     return map;

@@ -16,20 +16,20 @@ class _CustomTextButtonState extends State<CustomTextButton> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       child: ElevatedButton(
         onPressed: widget.isLoading ? null : widget.onTap,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
-          minimumSize: Size(double.infinity, 50),
+          minimumSize: const Size(double.infinity, 50),
         ),
         child: widget.isLoading
-            ? SizedBox(
+            ? const SizedBox(
                 height: 24,
                 width: 24,
-                child: const Center(
+                child: Center(
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
                     color: Colors.white,

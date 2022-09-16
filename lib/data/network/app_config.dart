@@ -10,4 +10,11 @@ class AppConfig {
       environment == Environment.production ? productionURL : stagingURL;
   static final bool isTestMode =
       environment == Environment.production ? false : true;
+
+  ///API Endpoints
+
+  static const String signUp = 'signup';
+  static const String signIn = 'signin';
+  static const String verifyToken = 'verify-token';
+  static const String getUserData = '';
 }

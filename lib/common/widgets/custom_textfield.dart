@@ -22,17 +22,17 @@ class TextBoxField extends StatelessWidget {
         child: TextFormField(
           controller: controller,
           obscureText: isPassword,
-          style: TextStyle(fontSize: 14),
+          style: const TextStyle(fontSize: 14),
           decoration: InputDecoration(
             hintText: hintText,
-            contentPadding: EdgeInsets.symmetric(horizontal: 12),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 12),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(color: Colors.black38),
+              borderSide: const BorderSide(color: Colors.black38),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(color: Colors.black38),
+              borderSide: const BorderSide(color: Colors.black38),
             ),
           ),
           validator: validator ??

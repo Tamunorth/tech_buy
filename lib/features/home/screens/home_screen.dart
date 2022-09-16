@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tech_buy/common/widgets/custom_button.dart';
-import 'package:tech_buy/features/auth/bloc/auth_event.dart';
-import 'package:tech_buy/features/auth/bloc/auth_state.dart';
-
-import '../../auth/bloc/auth_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tech_buy/features/home/widgets/address_box.dart';
+import 'package:tech_buy/features/home/widgets/carouselImage.dart';
+import 'package:tech_buy/features/home/widgets/deal_of_day.dart';
+import 'package:tech_buy/features/home/widgets/home_app_bar.dart';
+import 'package:tech_buy/features/home/widgets/top_categories.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home-screen';
@@ -17,21 +17,19 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final userState = context.read<AuthBloc>().state as SuccessState;
-
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: [
-          Center(child: Text(userState.user?.token ?? '')),
-
-          CustomTextButton(text: 'text' , onTap: () {
-
-
-            context.read<AuthBloc>().add(VerifyJwtEvent());
-
-          },),
-        ],
+      appBar: const HomeAppBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const AddressBox(),
+            10.verticalSpace,
+            const TopCategories(),
+            10.verticalSpace,
+            const CarouselImage(),
+            const DealOfDay(),
+          ],
+        ),
       ),
     );
   }

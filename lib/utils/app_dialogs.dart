@@ -42,7 +42,7 @@ class TechBuy {
     return Flushbar(
       flushbarPosition: FlushbarPosition.TOP,
       message: text,
-      margin: EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
       borderRadius: BorderRadius.circular(8),
 
       icon: Icon(

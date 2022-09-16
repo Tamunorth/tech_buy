@@ -76,7 +76,7 @@ class _AuthScreenState extends State<AuthScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Welcome! ',
                     style:
                         TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
@@ -84,7 +84,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   16.verticalSpace,
                   ListTile(
                     contentPadding: EdgeInsets.zero,
-                    title: Text('Sign Up'),
+                    title: const Text('Sign Up'),
                     onTap: () {
                       setState(() {
                         _authType = AuthType.signUp;
@@ -107,7 +107,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       });
                     },
                     contentPadding: EdgeInsets.zero,
-                    title: Text('Sign In'),
+                    title: const Text('Sign In'),
                     leading: Radio(
                         activeColor: EnvConsts.secondaryColor,
                         value: AuthType.signIn,

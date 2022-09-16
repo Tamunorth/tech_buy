@@ -2,9 +2,9 @@ import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:tech_buy/features/auth/services/auth_service.dart';
 
-import '../common/network/app_config.dart';
-import '../common/network/network_service.dart';
-import '../common/network/session_manager.dart';
+import '../data/network/app_config.dart';
+import '../data/network/network_service.dart';
+import '../data/network/session_manager.dart';
 
 /// Creating a singleton instance of GetIt.
 final sl = GetIt.instance;
@@ -24,7 +24,6 @@ Future<void> initCore() async {
   await sessionManager.init();
   sl.registerLazySingleton<SessionManager>(() => sessionManager);
 }
-
 
 Future<void> initServices() async {
   sl.registerLazySingleton(() => Logger());

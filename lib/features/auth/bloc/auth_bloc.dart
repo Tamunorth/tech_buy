@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:tech_buy/common/network/session_manager.dart';
 import 'package:tech_buy/models/sign_in/signin_res.dart';
 import 'package:tech_buy/models/sign_up/signup_res.dart';
 
 import './auth_event.dart';
+import '../../../data/network/session_manager.dart';
 import '../../../utils/di.dart';
 import '../services/auth_service.dart';
 import 'auth_state.dart';
@@ -23,18 +23,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   void _init(InitEvent event, Emitter<AuthState> emit) async {
     emit(state);
   }
-  //
-  // Future<void> _signInWithGoogle(
-  //     SignInEvent event, Emitter<AuthState> emit) async {
-  //   try {
-  //     emit(LoadingState());
-  //
-  //     // await _authService.signInWithGoogle();
-  //     emit(SuccessState());
-  //   } catch (e) {
-  //     emit(ErrorState(message: e.toString()));
-  //   }
-  // }
+
+  SignInRes userData = SignInRes();
 
   Future<void> _signUpWithEmail(
       SignUpEvent event, Emitter<AuthState> emit) async {
@@ -59,9 +49,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         password: event.password,
       );
 
+      userData = response;
+
       logger.i(response.toString());
 
       sl<SessionManager>().authToken = response.token!;
+
+      logger.i(userData.toString());
 
       logger.i("User Token: ${sl<SessionManager>().authToken}");
 
@@ -73,14 +67,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> _verifyJwt(VerifyJwtEvent event, Emitter<AuthState> emit) async {
     try {
-      // emit(LoadingState());
+      emit(LoadingState());
 
       final bool response = await _authService.verifyJwt();
 
       logger.i(
           "User Token: ${sl<SessionManager>().authToken} :: Compared to ${response.toString()}");
 
-      // emit(SuccessState(user: response));
+      final SignInRes user = await _authService.getUserData();
+
+      userData = user;
+
+      emit(SuccessState(user: userData));
     } catch (e) {
       emit(ErrorState(message: e.toString()));
     }

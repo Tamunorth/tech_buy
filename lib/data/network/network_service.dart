@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:dio/dio.dart';
-import 'package:tech_buy/common/network/session_manager.dart';
+import 'package:tech_buy/data/network/session_manager.dart';
 
 import 'api_error.dart';
 import 'app_config.dart';
@@ -43,7 +43,9 @@ class NetworkService {
       receiveTimeout: receiveTimeout,
       baseUrl: baseUrl ?? AppConfig.coreBaseUrl,
     ));
+
     authToken ??= SessionManager.instance.authToken;
+
     dio!.interceptors
       ..add(AppInterceptor(authToken!))
       ..add(LogInterceptor(requestBody: true, logPrint: printDioLogs));
@@ -91,7 +93,7 @@ class NetworkService {
               data: formData,
               queryParameters: params,
               options: Options(headers: {
-                "Authorization": "Bearer " + SessionManager.instance.authToken,
+                "Authorization": SessionManager.instance.authToken,
                 "Content-Disposition": "form-data",
                 "Content-Type": "multipart/form-data",
                 'Accept': 'application/json'
@@ -114,7 +116,7 @@ class NetworkService {
 
   Future<Options> _getOption() async {
     return Options(headers: {
-      "Authorization": "Bearer " + SessionManager.instance.authToken,
+      "Authorization": SessionManager.instance.authToken,
       'Accept': 'application/json'
     });
   }

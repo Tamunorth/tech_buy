@@ -1,4 +1,5 @@
-/// token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMjE5YTg2YmI1NDQ1Yzk5ZDYxODhiYiIsImlhdCI6MTY2MzE0Njc4MH0.3KSyFV6W0_J2_D0wjpQ-hczbumAUrW-YhXqjdu9_rI0"
+/// token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMjE5YTg2YmI1NDQ1Yzk5ZDYxODhiYiIsImlhdCI6MTY2MzMxNzk5NH0.PRu6TE7xp-QRrNwMZDNAKy1-HiTQdBCmEx1SjVnIvnI"
+/// type : "user"
 /// _id : "63219a86bb5445c99d6188bb"
 /// name : "Tams e"
 /// email : "Tams3@email.com"
@@ -9,6 +10,7 @@
 class SignInRes {
   SignInRes({
     String? token,
+    String? type,
     String? id,
     String? name,
     String? email,
@@ -17,6 +19,7 @@ class SignInRes {
     num? v,
   }) {
     _token = token;
+    _type = type;
     _id = id;
     _name = name;
     _email = email;
@@ -27,6 +30,7 @@ class SignInRes {
 
   SignInRes.fromJson(dynamic json) {
     _token = json['token'];
+    _type = json['type'];
     _id = json['_id'];
     _name = json['name'];
     _email = json['email'];
@@ -35,6 +39,7 @@ class SignInRes {
     _v = json['__v'];
   }
   String? _token;
+  String? _type;
   String? _id;
   String? _name;
   String? _email;
@@ -43,6 +48,7 @@ class SignInRes {
   num? _v;
   SignInRes copyWith({
     String? token,
+    String? type,
     String? id,
     String? name,
     String? email,
@@ -52,6 +58,7 @@ class SignInRes {
   }) =>
       SignInRes(
         token: token ?? _token,
+        type: type ?? _type,
         id: id ?? _id,
         name: name ?? _name,
         email: email ?? _email,
@@ -60,6 +67,7 @@ class SignInRes {
         v: v ?? _v,
       );
   String? get token => _token;
+  String? get type => _type;
   String? get id => _id;
   String? get name => _name;
   String? get email => _email;
@@ -70,6 +78,7 @@ class SignInRes {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['token'] = _token;
+    map['type'] = _type;
     map['_id'] = _id;
     map['name'] = _name;
     map['email'] = _email;
@@ -77,10 +86,5 @@ class SignInRes {
     map['address'] = _address;
     map['__v'] = _v;
     return map;
-  }
-
-  @override
-  String toString() {
-    return 'SignInRes{_token: $_token, _id: $_id, _name: $_name, _email: $_email, _password: $_password, _address: $_address, _v: $_v}';
   }
 }

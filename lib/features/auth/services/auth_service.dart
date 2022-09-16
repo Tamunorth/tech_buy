@@ -4,8 +4,9 @@ import 'package:tech_buy/models/sign_up/signup_request.dart';
 import 'package:tech_buy/models/sign_up/signup_res.dart';
 import 'package:tech_buy/utils/di.dart';
 
-import '../../../common/network/network_service.dart';
-import '../../../common/network/url_config.dart';
+import '../../../data/network/app_config.dart';
+import '../../../data/network/network_service.dart';
+import '../../../data/network/session_manager.dart';
 
 class AuthService {
   final NetworkService networkService;
@@ -23,7 +24,7 @@ class AuthService {
       );
 
       final response = await networkService.call(
-        UrlConfig.sign_up,
+        AppConfig.signUp,
         RequestMethod.post,
         data: user.toJson(),
       );
@@ -45,7 +46,7 @@ class AuthService {
       );
 
       final response = await networkService.call(
-        UrlConfig.sign_in,
+        AppConfig.signIn,
         RequestMethod.post,
         data: user.toJson(),
       );
@@ -55,20 +56,33 @@ class AuthService {
       rethrow;
     }
   }
+  //
 
   Future<bool> verifyJwt() async {
     try {
-      // final Map data = {'token': sl<SessionManager>().authToken};
-      final Map data = {'token': 'asssssssss'};
+      final Map data = {'token': sl<SessionManager>().authToken};
 
       final response = await networkService.call(
-        UrlConfig.verify_token,
+        AppConfig.verifyToken,
         RequestMethod.post,
         data: data,
       );
       logger.i(response.data);
 
       return response.data;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<SignInRes> getUserData() async {
+    try {
+      final response = await networkService.call(
+        AppConfig.getUserData,
+        RequestMethod.get,
+      );
+
+      return SignInRes.fromJson(response.data);
     } catch (e) {
       rethrow;
     }
