@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import 'package:tech_buy/features/admin/services/admin_service.dart';
 import 'package:tech_buy/features/auth/services/auth_service.dart';
 
 import '../data/network/app_config.dart';
@@ -32,4 +33,5 @@ Future<void> initServices() async {
   sl.registerLazySingleton(() => AuthService(
         networkService: sl(),
       ));
+  sl.registerLazySingleton(() => AdminService());
 }

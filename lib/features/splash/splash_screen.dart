@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Routers.replaceNamed(context, AuthScreen.routeName);
         }
         if (state is SuccessState) {
-          if (state.user?.type == 'user') {
+          if (state.user?.type == 'admin') {
             Routers.replaceNamed(context, AdminScreen.routeName);
           } else {
             Routers.replaceNamed(context, BottomBar.routeName);
@@ -42,7 +42,8 @@ class _SplashScreenState extends State<SplashScreen> {
       },
       builder: (context, state) {
         if (state is LoadingState) {
-          return const Scaffold(body: Center(child: CircularProgressIndicator()));
+          return const Scaffold(
+              body: Center(child: CircularProgressIndicator()));
         }
         return const Scaffold(body: Text(''));
       },

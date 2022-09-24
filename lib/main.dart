@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tech_buy/constants/env_consts.dart';
+import 'package:tech_buy/features/admin/bloc/admin_bloc.dart';
 import 'package:tech_buy/features/auth/screens/auth_screen.dart';
 import 'package:tech_buy/features/splash/splash_screen.dart';
 import 'package:tech_buy/router.dart';
@@ -53,6 +54,9 @@ class _MyAppState extends State<MyApp> {
             providers: [
               BlocProvider<AuthBloc>(
                 create: (context) => AuthBloc(),
+              ),
+              BlocProvider<AdminBloc>(
+                create: (context) => AdminBloc(),
               ),
             ],
             child: Builder(builder: (context) {

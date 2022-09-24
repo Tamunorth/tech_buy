@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:tech_buy/features/admin/screens/add_products_screen.dart';
 import 'package:tech_buy/features/admin/screens/admin_screen.dart';
 import 'package:tech_buy/features/auth/screens/auth_screen.dart';
 import 'package:tech_buy/features/home/screens/home_screen.dart';
@@ -28,6 +29,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const AdminScreen(),
+      );
+    case AddProductsScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const AddProductsScreen(),
       );
     default:
       return MaterialPageRoute(

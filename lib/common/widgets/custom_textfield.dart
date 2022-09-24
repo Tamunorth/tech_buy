@@ -5,6 +5,7 @@ class TextBoxField extends StatelessWidget {
   final String hintText;
   final String? Function(String?)? validator;
   final bool isPassword;
+  final int maxLines;
 
   const TextBoxField({
     Key? key,
@@ -12,6 +13,7 @@ class TextBoxField extends StatelessWidget {
     this.hintText = '',
     this.isPassword = false,
     this.validator,
+    this.maxLines = 1,
   }) : super(key: key);
 
   @override
@@ -21,11 +23,13 @@ class TextBoxField extends StatelessWidget {
       child: SizedBox(
         child: TextFormField(
           controller: controller,
+          maxLines: maxLines,
           obscureText: isPassword,
           style: const TextStyle(fontSize: 14),
           decoration: InputDecoration(
             hintText: hintText,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
               borderSide: const BorderSide(color: Colors.black38),

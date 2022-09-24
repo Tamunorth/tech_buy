@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tech_buy/features/home/widgets/address_box.dart';
-import 'package:tech_buy/features/home/widgets/carouselImage.dart';
+import 'package:tech_buy/features/home/widgets/carousel_image.dart';
 import 'package:tech_buy/features/home/widgets/deal_of_day.dart';
 import 'package:tech_buy/features/home/widgets/home_app_bar.dart';
 import 'package:tech_buy/features/home/widgets/top_categories.dart';

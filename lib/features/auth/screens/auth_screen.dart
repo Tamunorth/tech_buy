@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tech_buy/common/widgets/bottom_bar.dart';
 import 'package:tech_buy/common/widgets/custom_textfield.dart';
 import 'package:tech_buy/constants/env_consts.dart';
+import 'package:tech_buy/features/admin/screens/admin_screen.dart';
 import 'package:tech_buy/features/auth/bloc/auth_event.dart';
-import 'package:tech_buy/features/home/screens/home_screen.dart';
 import 'package:tech_buy/router.dart';
 import 'package:tech_buy/utils/app_dialogs.dart';
 import 'package:tech_buy/utils/validation_helpers.dart';
@@ -166,8 +167,13 @@ class _AuthScreenState extends State<AuthScreen> {
                     listener: (context, state) {
                       if (state is SuccessState) {
                         if (_authType == AuthType.signIn) {
-                          Routers.replaceNamed(context, HomeScreen.routeName);
-                          TechBuy.showSnackBar(context, "Inside the app now");
+                          if (state.user?.type == 'admin') {
+                            Routers.replaceNamed(
+                                context, AdminScreen.routeName);
+                          } else {
+                            Routers.replaceNamed(context, BottomBar.routeName);
+                            TechBuy.showSnackBar(context, "Inside the app now");
+                          }
                         } else {
                           setState(() {
                             _authType = AuthType.signIn;

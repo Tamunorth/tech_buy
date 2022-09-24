@@ -1,9 +1,9 @@
 enum Environment { staging, production }
 
 class AppConfig {
-  static const pcIp = '192.168.100.31';
+  static const pcIp = 'localhost';
   static Environment environment = Environment.staging;
-  static const String stagingURL = 'http://$pcIp:3000/api/';
+  static const String stagingURL = 'http://$pcIp:3000/';
 
   static const String productionURL = "nan";
   static final coreBaseUrl =
@@ -13,8 +13,12 @@ class AppConfig {
 
   ///API Endpoints
 
-  static const String signUp = 'signup';
-  static const String signIn = 'signin';
-  static const String verifyToken = 'verify-token';
-  static const String getUserData = '';
+  static const String signUp = 'api/signup';
+  static const String signIn = 'api/signin';
+  static const String verifyToken = 'api/verify-token';
+  static const String getUserData = 'api/';
+
+  static const String addProduct = 'admin/add-product';
+  static const String getProducts = 'admin/get-products';
+  static const String deleteProduct = 'admin/delete-product';
 }

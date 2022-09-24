@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:tech_buy/models/sign_in/signin_res.dart';
-import 'package:tech_buy/models/sign_up/signup_res.dart';
 
 import './auth_event.dart';
 import '../../../data/network/session_manager.dart';
 import '../../../utils/di.dart';
+import '../models/sign_in/signin_res.dart';
+import '../models/sign_up/signup_res.dart';
 import '../services/auth_service.dart';
 import 'auth_state.dart';
 

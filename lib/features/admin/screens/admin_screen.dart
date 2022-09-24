@@ -25,7 +25,8 @@ class _AdminScreenState extends State<AdminScreen> {
   }
 
   List<Widget> pages = [
-const PostScreen(),    const Text('View page='),
+    const PostScreen(),
+    const Text('View page='),
     const Text('ss page='),
   ];
 

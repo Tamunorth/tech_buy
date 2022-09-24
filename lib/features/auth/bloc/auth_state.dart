@@ -1,4 +1,4 @@
-import 'package:tech_buy/models/sign_in/signin_res.dart';
+import '../models/sign_in/signin_res.dart';
 
 abstract class AuthState {}
 

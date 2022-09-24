@@ -66,7 +66,7 @@ class FieldValidators {
   static String? numberValidator(String? value) {
     if (value!.isEmpty) {
       return 'Field Cannot Be empty';
-    } else if (!value.isNumericOnly) {
+    } else if (!value.isNum) {
       return "Only Numbers allowed";
     } else {
       return null;

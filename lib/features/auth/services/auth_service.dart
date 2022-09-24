@@ -1,12 +1,12 @@
-import 'package:tech_buy/models/sign_in/sign_in_request.dart';
-import 'package:tech_buy/models/sign_in/signin_res.dart';
-import 'package:tech_buy/models/sign_up/signup_request.dart';
-import 'package:tech_buy/models/sign_up/signup_res.dart';
 import 'package:tech_buy/utils/di.dart';
 
 import '../../../data/network/app_config.dart';
 import '../../../data/network/network_service.dart';
 import '../../../data/network/session_manager.dart';
+import '../models/sign_in/sign_in_request.dart';
+import '../models/sign_in/signin_res.dart';
+import '../models/sign_up/signup_request.dart';
+import '../models/sign_up/signup_res.dart';
 
 class AuthService {
   final NetworkService networkService;
